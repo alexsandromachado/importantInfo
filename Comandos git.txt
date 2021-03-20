@@ -1,0 +1,21 @@
+*** COMMIT 
+git shortlog = mostra lista com mensagens dos commits
+
+git checkout -b nomeBrach = cria nova branch e faz checkout para ela
+git branch nomeBranch = apena cria nova branch mas permanece na atual
+git branch = exibe lista das branchs existentes
+git branch -d nomeBranch = exclui branch
+
+**** MERGE
+estando na branch a ser atualizada -git merge nomeBranchModificada = trás as modificações de branchModificada para a branch atual
+OBS: não precisa commitr novamente, já foi commitado na branchModificada!
+
+
+**** COMANDOS TERMINAL
+ctrl+l = limpar tela terminal
+clear =  limpar terminal
+code . = abre vscode no diretório atual
+cd .. = volta 1 diretório acima
+mkdir = cria diretório
+ls = mostra conteúdo do diretório atual
+cd + nomeDiretório = entrar no diretório
