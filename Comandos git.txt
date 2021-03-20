@@ -19,3 +19,4 @@ cd .. = volta 1 diretório acima
 mkdir = cria diretório
 ls = mostra conteúdo do diretório atual
 cd + nomeDiretório = entrar no diretório
+touch + nomeArquivo.extensaoArquivo = criar arquivo
