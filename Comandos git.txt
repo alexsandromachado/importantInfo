@@ -20,3 +20,6 @@ mkdir = cria diretório
 ls = mostra conteúdo do diretório atual
 cd + nomeDiretório = entrar no diretório
 touch + nomeArquivo.extensaoArquivo = criar arquivo
+
+
+git log --decorate --oneline = mostra onde onde a HEAD está apontando
