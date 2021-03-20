@@ -6,5 +6,6 @@
       </head>
       <body>
         Aqui vai o código HTML 5 de teste que fará seu site aparecer turquesa.
+        Aqui vai o código HTML 5 de teste que fará seu site aparecer azul.
       </body>
     </html>
