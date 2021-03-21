@@ -23,3 +23,20 @@ touch + nomeArquivo.extensaoArquivo = criar arquivo
 
 
 git log --decorate --oneline = mostra onde onde a HEAD está apontando
+git stash
+git stash list
+git stash pop
+git stash apply
+git stash apply @{id}
+
+
+Desejar criar uma branch a partir das suas modificações sem commitar ?
+Simples, utilize o comando git stash branch <nome-da-branch>; sendo que nesse caso também é possível informar qual exato stash você deseja, observe o exemplo: git stash branch <nome-da-branch> stash@{1}.
+
+git stash show Lista todos os arquivos modificados no ultimo stash;
+git stash clear Realiza a remoção de todos os stash’s;
+git stash create <mensagem> e git stash save <mensagem>
+Ambos criam uma mensagem/nome para o stash;
+
+Se você executou git add e quer desfazer, use o reset.
+git reset
