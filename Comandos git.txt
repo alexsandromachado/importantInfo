@@ -23,20 +23,53 @@ touch + nomeArquivo.extensaoArquivo = criar arquivo
 
 
 git log --decorate --oneline = mostra onde onde a HEAD está apontando
-git stash
-git stash list
-git stash pop
-git stash apply
-git stash apply @{id}
+
+1 – git stash: quando precisamos trocar de branch, sem antes ter enviado para o repositório as alterações, podemos usar o git stash para “esconder” as alterações primeiramente. Cada vez que é executado o comando git stash, o git gera um stash para guardar as alterações não versionadas. Deste modo, podemos realizar outras alterações e então recuperar o trabalho que estávamos fazendo anteriormente.
+
+    git stash list: verifica quantos e quais stashes temos.
+    git stash show stash@{1}: verifica se por acaso esquecermos o que temos em um stash. Sendo {1} o número do stash que queremos verificar.
+    git stash apply: aplica novamente as alterações do último stash.
+    git stash pop: aplica as alterações do stash e em seguida o apaga.
+    git stash drop stash@{2}: e por fim, usamos esse comando, se quisermos somente apagar o stash sem aplicar as alterações.
+
+2 – git diff: para visualizar alterações ainda não versionadas, usamos o comando: git diff sem parâmetros. Porém, podemos também comparar versões incluindo referências por commit, branches, tags, enfim. Para esses casos usaremos os parâmetros conforme mostrado a seguir:
+
+    git diff nomeBranch: revisa as diferenças entre o código atual e uma branch local.
+    git diff origin/nomeBranch: revisa as diferenças entre o código atual e uma branch remota.
+    git diff IdentificacaoCommit1 IdentificacaoCommit2: revisa diferenças entre dois commits.
+    git diff 5.2: revisa diferenças entre o código atual e um commit nomeado com uma tag chamada “5.2”, por um exemplo.
+ $ git diff origin/development 
 
 
-Desejar criar uma branch a partir das suas modificações sem commitar ?
-Simples, utilize o comando git stash branch <nome-da-branch>; sendo que nesse caso também é possível informar qual exato stash você deseja, observe o exemplo: git stash branch <nome-da-branch> stash@{1}.
+Para revisar as diferenças entre dois commits:
 
-git stash show Lista todos os arquivos modificados no ultimo stash;
-git stash clear Realiza a remoção de todos os stash’s;
-git stash create <mensagem> e git stash save <mensagem>
-Ambos criam uma mensagem/nome para o stash;
+ $ git diff 22dbbf5a1113e76493834ed70fecfd23c9052cd1 4a129c8f8a5f52501a9bfc8c5f720b3a75b8c2eb 
 
-Se você executou git add e quer desfazer, use o reset.
-git reset
+
+Dica: você também pode usar parte do SHA1 (usado para identificar um commit de forma única), desde que não seja uma referência ambígua:
+
+ $ git diff 22dbbf5 4a129c8 
+
+3 – git show: usamos esse comando para visualizar os detalhes do commit atual.
+
+    git show 5.3: para visualizar o commit da versão nomeada com a tag 5.3.
+    git show master: para visualizar o último commit da branch master.
+
+onde tiver espaço vcs devem colocar uma \ parecido com o linux  ex: Novo\ Documento\ de\ Texto.txt
+
+Para visualizar uma lista simplificada dos commits (pode ser útil para automações):
+
+ $ git log --oneline 
+
+Copy
+
+Para visualizar os últimos 5 commits:
+
+ $ git log -5 
+
+Copy
+
+Para visualizar apenas os commits de merge:
+
+ $ git log --merges 
+
