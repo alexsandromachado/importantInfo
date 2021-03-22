@@ -78,3 +78,5 @@ Por exemplo, se confirmares e depois perceberes que te esqueceste de preparar as
 $ git commit -m 'initial commit'
 $ git add forgotten_file
 $ git commit --amend
+
+teste3
