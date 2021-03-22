@@ -50,6 +50,7 @@ git log --decorate --oneline = mostra onde onde a HEAD está apontando
 git log --oneline = Mostra uma lista simplificada dos commits 
 git log -5 = Mostra os últimos 5 commits.
 git log --merges = Mostra apenas os commits de merge.
+<<<<<<< HEAD
 git log --after="yyyy-MM-dd" = Mostra o histórico de commits feitos depois de uma data.
 git log --before="yyyy-MM-dd" = Mostra o histórico de commits feitos antes de uma data.
 
@@ -152,3 +153,33 @@ git reset HEAD~ (seus arquivos voltarão para fora da área de envio e seleção
 
 
  
+=======
+
+**** CLEAN
+git clean -f = Remove (apaga) arquivos não adicionados (untracked), que não passaram pelo git add.(Arquivos adicionados não serão removidos)
+git clean -fd = Remove (apaga) diretório não adicionados (untracked), que não passaram pelo git add.(Diretórios adicionados não serão removidos)
+git clean -f -d = Remove (apaga) todos os arquivos e diretórios não adicionados (untracked).
+
+
+
+git log --after="MMM DD YYYY" = Mostra o histórico de commits feitos depois de uma data:
+git log --before="MMM DD YYYY" = Mostra o histórico de commits feitos antes de uma data:
+
+Se você tiver adicionado arquivos no index (usando git add), você precisa aplicar o seguinte comando antes dos comandos acima, para removê-los do index:
+
+# Defazer git add . (todos os arquivos) =   git reset
+git reset HEAD .
+$ git reset HEAD nomeArquivoParaResetar
+
+
+Tenho usado com sucesso apenas estes dois comandos abaixo quando faço diversas alterações em uma branch e desejo me desfazer de todas elas sem ter commitado nada ainda.
+
+O primeiro comando é para reverter todas as alterações em arquivos que estavam versionados:
+git checkout -- . (para todos arquivos)
+git checkout -- <file>   (para um arquivo específico)
+
+Por exemplo, se confirmares e depois perceberes que te esqueceste de preparar as alterações num arquivo que tu querias incluir nesta confirmação, tu podes fazer o seguinte:
+$ git commit -m 'initial commit'
+$ git add forgotten_file
+$ git commit --amend
+>>>>>>> 854712cb231aefe8636ccb4b7e1cb0c7b2a516d4
