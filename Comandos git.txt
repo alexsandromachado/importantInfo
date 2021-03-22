@@ -1,4 +1,4 @@
-*** COMMIT 
+**** COMMIT 
 git shortlog = mostra lista com mensagens dos commits
 
 git checkout -b nomeBrach = cria nova branch e faz checkout para ela
@@ -10,7 +10,6 @@ git branch -d nomeBranch = exclui branch
 estando na branch a ser atualizada -git merge nomeBranchModificada = trás as modificações de branchModificada para a branch atual
 OBS: não precisa commitr novamente, já foi commitado na branchModificada!
 
-
 **** COMANDOS TERMINAL
 ctrl+l = limpar tela terminal
 clear =  limpar terminal
@@ -20,56 +19,88 @@ mkdir = cria diretório
 ls = mostra conteúdo do diretório atual
 cd + nomeDiretório = entrar no diretório
 touch + nomeArquivo.extensaoArquivo = criar arquivo
-
-
-git log --decorate --oneline = mostra onde onde a HEAD está apontando
-
-1 – git stash: quando precisamos trocar de branch, sem antes ter enviado para o repositório as alterações, podemos usar o git stash para “esconder” as alterações primeiramente. Cada vez que é executado o comando git stash, o git gera um stash para guardar as alterações não versionadas. Deste modo, podemos realizar outras alterações e então recuperar o trabalho que estávamos fazendo anteriormente.
-
-    git stash list: verifica quantos e quais stashes temos.
-    git stash show stash@{1}: verifica se por acaso esquecermos o que temos em um stash. Sendo {1} o número do stash que queremos verificar.
-    git stash apply: aplica novamente as alterações do último stash.
-    git stash pop: aplica as alterações do stash e em seguida o apaga.
-    git stash drop stash@{2}: e por fim, usamos esse comando, se quisermos somente apagar o stash sem aplicar as alterações.
-
-2 – git diff: para visualizar alterações ainda não versionadas, usamos o comando: git diff sem parâmetros. Porém, podemos também comparar versões incluindo referências por commit, branches, tags, enfim. Para esses casos usaremos os parâmetros conforme mostrado a seguir:
-
-    git diff nomeBranch: revisa as diferenças entre o código atual e uma branch local.
-    git diff origin/nomeBranch: revisa as diferenças entre o código atual e uma branch remota.
-    git diff IdentificacaoCommit1 IdentificacaoCommit2: revisa diferenças entre dois commits.
-    git diff 5.2: revisa diferenças entre o código atual e um commit nomeado com uma tag chamada “5.2”, por um exemplo.
- $ git diff origin/development 
-
-
-Para revisar as diferenças entre dois commits:
-
- $ git diff 22dbbf5a1113e76493834ed70fecfd23c9052cd1 4a129c8f8a5f52501a9bfc8c5f720b3a75b8c2eb 
-
-
-Dica: você também pode usar parte do SHA1 (usado para identificar um commit de forma única), desde que não seja uma referência ambígua:
-
- $ git diff 22dbbf5 4a129c8 
-
-3 – git show: usamos esse comando para visualizar os detalhes do commit atual.
-
-    git show 5.3: para visualizar o commit da versão nomeada com a tag 5.3.
-    git show master: para visualizar o último commit da branch master.
-
 onde tiver espaço vcs devem colocar uma \ parecido com o linux  ex: Novo\ Documento\ de\ Texto.txt
+cat + nomeArquivo = exibe conteúdo do arquivo
 
-Para visualizar uma lista simplificada dos commits (pode ser útil para automações):
+**** STASH
+git stash: quando precisamos trocar de branch, sem antes ter enviado para o repositório as alterações, podemos usar o git stash para “esconder” as alterações primeiramente. Cada vez que é executado o comando git stash, o git gera um stash para guardar as alterações não versionadas. Deste modo, podemos realizar outras alterações e então recuperar o trabalho que estávamos fazendo anteriormente.
+git stash list: verifica quantos e quais stashes temos.
+git stash show stash@{1}: verifica se por acaso esquecermos o que temos em um stash. Sendo {1} o número do stash que queremos verificar.
+git stash apply: aplica novamente as alterações do último stash.
+git stash pop: aplica as alterações do stash e em seguida o apaga.
+git stash drop stash@{2}: e por fim, usamos esse comando, se quisermos somente apagar o stash sem aplicar as alterações.
 
- $ git log --oneline 
+**** DIFF
+git diff: para visualizar alterações ainda não versionadas, usamos o comando: git diff sem parâmetros. Porém, podemos também comparar versões incluindo referências por commit, branches, tags, enfim. Para esses casos usaremos os parâmetros conforme mostrado a seguir:
+git diff nomeBranch: revisa as diferenças entre o código atual e uma branch local.
+git diff origin/nomeBranch: revisa as diferenças entre o código atual e uma branch remota.
+git diff IdentificacaoCommit1 IdentificacaoCommit2: revisa diferenças entre dois commits.
+git diff 5.2: revisa diferenças entre o código atual e um commit nomeado com uma tag chamada “5.2”, por um exemplo.
+git diff 22dbbf5a1113e76493834ed70fecfd23c9052cd1 4a129c8f8a5f52501a9bfc8c5f720b3a75b8c2eb  = revisa as diferenças entre dois commits:
+git diff 22dbbf5 4a129c8 = usar parte do SHA1 (usado para identificar um commit de forma única), desde que não seja uma referência ambígua:
 
-Copy
+**** SHOW
+git show: usamos esse comando para visualizar os detalhes do commit atual.
+git show 5.3: para visualizar o commit da versão nomeada com a tag 5.3.
+git show master: para visualizar o último commit da branch master.
 
-Para visualizar os últimos 5 commits:
+**** LOG
+git log --all --decorate --oneline --graph = Exibe branches em um modo mais legível.
+git log --decorate --oneline = mostra onde onde a HEAD está apontando
+git log --oneline = Mostra uma lista simplificada dos commits 
+git log -5 = Mostra os últimos 5 commits.
+git log --merges = Mostra apenas os commits de merge.
 
- $ git log -5 
 
-Copy
 
-Para visualizar apenas os commits de merge:
 
- $ git log --merges 
+
+git log --after="MMM DD YYYY" = Mostra o histórico de commits feitos depois de uma data:
+git log --before="MMM DD YYYY" = Mostra o histórico de commits feitos antes de uma data:
+
+
+
+
+
+
+
+Se você tiver adicionado arquivos no index (usando git add), você precisa aplicar o seguinte comando antes dos comandos acima, para removê-los do index:
+
+# Defazer git add . (todos os arquivos) =   git reset
+git reset HEAD .
+$ git reset HEAD nomeArquivoParaResetar
+
+
+
+Tenho usado com sucesso apenas estes dois comandos abaixo quando faço diversas alterações em uma branch e desejo me desfazer de todas elas sem ter commitado nada ainda.
+
+O primeiro comando é para reverter todas as alterações em arquivos que estavam versionados:
+
+git checkout -- . (para todos arquivos)
+git checkout -- <file>   (para um arquivo específico)
+
+O segundo é para apagar todos os arquivos e diretórios criados:
+
+git clean -f -d
+
+
+Para remover arquivos não adicionados (untracked), que não passaram pelo git add: (Arquivos adicionados não serão removidos)
+
+# Para arquivos
+git clean -f
+
+# Para diretórios
+git clean -fd
+
+
+
+
+Por exemplo, se confirmares e depois perceberes que te esqueceste de preparar as alterações num arquivo que tu querias incluir nesta confirmação, tu podes fazer o seguinte:
+
+$ git commit -m 'initial commit'
+$ git add forgotten_file
+$ git commit --amend
+
+
+
 
