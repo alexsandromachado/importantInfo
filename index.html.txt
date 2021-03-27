@@ -5,7 +5,7 @@
         <meta charset="utf-8">
       </head>
       <body>
-        Aqui vai o código HTML 5 de teste que fará seu novo site aparecer azul-marinho.
-        Aqui vai o código HTML 5 para teste que fará seu site aparecer verde.
+        Aqui vai o código HTML 5 de teste que fará seu extraordinário site aparecer azul-marinho.
+        Aqui vai o código HTML 5 que fará seu site aparecer verde.
       </body>
     </html>
