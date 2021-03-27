@@ -6,6 +6,6 @@
       </head>
       <body>
         Aqui vai o código HTML 5 de teste que fará seu site aparecer azul-marinho.
-        Aqui vai o código HTML 5 de teste que fará seu site aparecer verde.
+        Aqui vai o código HTML 5 para teste que fará seu site aparecer verde.
       </body>
     </html>
